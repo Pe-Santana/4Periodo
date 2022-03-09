@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos</title>
+</head>
+<body>  
+    <header>
+        <table>
+            <tr>
+                <td>
+                    <img src="images/avatar.png" alt="avatar" width="100" height="100">
+                </td>
+                <td>
+                    <h1>Carlos Silva</h1>
+                </td>            
+            </tr>
+    
+        </table>
+    
+    
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="index.html">Página Principal</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form action="index.html" method="post">
+            <SECtion>
+                <h2>Dados para contato</h2><br>
+                <label for="nome">Nome:</label><br>
+                <input type="text" name="nome" id="nome" required>
+                <br>
+                <label for="email">E-mail:</label><br>
+                <input type="text" name="email" id="email" required>
+                <br>
+                <label for="idade">Idade:</label><br>
+                <input type="number" name="idade" id="idade" required>
+                <br>
+                <label for="telefone">Telefone:</label><br>
+                <input type="tel" name="telefone" id="telefone" required>
+                <br>
+                <label for="nascimento">Data de Nascimento:</label><br>
+                <input type="date" name="nascimento" id="nascimento" >
+                <br>
+                <fieldset>
+                    <legend>Sexo:</legend>
+                    <input type="radio" name="sexo" id="m" value="m">
+                    <label for="m">Masculino</label>
+                    <input type="radio" name="sexo" id="f" value="f">
+                    <label for="f">Feminino</label>
+                    <br>
+                </fieldset>
+                <fieldset>
+                    <legend>Estado Civil</legend>
+                    <input type="radio" name="estado_civil" id="solteiro" value="s">
+                    <label for="solteiro">Solteiro</label>
+                    <input type="radio" name="estado_civil" id="casado" value="c">
+                    <label for="casado">Casado</label>
+                    <input type="radio" name="estado_civil" id="outroEC" value="o">
+                    <label for="outroEC">Outro</label>
+                    <br>
+                </fieldset>
+            </SECtion>
+    
+            <section>
+                <h2>Dados da Empresa</h2><br>
+                <label for="cnpj">CNPJ:</label><br>
+                <input type="text" name="cnpj" id="cnpj">
+                <br>
+                <label for="razaoSocial">Razão Social:</label><br>
+                <input type="text" name="razaoSocial" id="razaoSocial">
+                <br>
+                <label for="ramoAtuacao">Ramo de Atuação:</label><br>
+                <input type="text" name="ramoAtuacao" id="ramoAtuacao">
+            </section>
+    
+            <section>
+                <h2>Endereço</h2><br>
+                <label for="cep">CEP:</label><br>
+                <input type="number" name="cep" id="cep" required>
+                <br>
+
+                <p>Logradouro:</p>
+                <input type="checkbox" name="logradouro" id="rua" >
+                <label for="rua">Rua</label><br>
+                
+                <input type="checkbox" name="logradouro" id="avenida" >
+                <label for="avenida">Avenida</label><br>
+                
+                <input type="checkbox" name="logradouro" id="praca" >
+                <label for="praca">Praça</label><br>
+                
+                <input type="checkbox" name="logradouro" id="outro" >
+                <label for="outro">Outros</label><br>
+                <br>
+                <label for="cidade">Cidade:</label><br>
+                <input type="text" name="cidade" id="cidade" required>
+                <br>
+                <label for="estado">Estado:</label><br>
+                <input type="text" name="estado" id="estado" required>
+                <br>
+            </section>
+    
+            <section>
+                <h2>Descrição Detalhada de Interesse</h2>
+                <label for="descricao"></label><br>
+                <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+            </section>
+
+            <section>
+                <h2>Detalhes da Vaga</h2>
+                <p>Vaga:</p>
+                <input type="radio" name="vaga" id="devWeb" value="devWeb">
+                <label for="devWeb">Desenvolvedor WEB</label>
+                <br>
+                <input type="radio" name="vaga" id="projeto" value="projeto">
+                <label for="projeto">Gerente de Projeto</label>
+                <br>
+                <input type="radio" name="vaga" id="outraVaga" value="other">
+                <label for="outraVaga">Outra Vaga</label>
+                <br>
+
+                <p>Requesitos Desejados:</p>
+                <input type="checkbox" name="requesitos" id="conhecimentoWeb" value="cWeb">
+                <label for="conhecimentoWeb">Conhecimento Web</label>
+                <br>
+                <input type="checkbox" name="requesitos" id="projetoNaArea" value="projArea">
+                <label for="projetoNaArea">Possuir Projetos na Área</label>
+                <br>
+                <input type="checkbox" name="requesitos" id="conhecimentoBD" value="cBD">
+                <label for="conhecimentoBD">Conhecimento de Banco de Dados</label>
+                <br>
+                <input type="checkbox" name="requesitos" id="inglesAvancado" value="ingles">
+                <label for="inglesAvancado">Inglês Avançado</label>
+                <br>
+            </section>
+            <br>
+
+            <button>Enviar</button>
+        </form>
+    </main>
+    
+    <footer>  
+    <br>
+    <br>
+    <a href="index.html">Página Principal </a>
+    </footer>
+    
+</body>
+</html>

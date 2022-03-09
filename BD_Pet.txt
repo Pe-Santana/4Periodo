@@ -1,0 +1,31 @@
+CREATE TABLE Produto (
+	idProduto	Serial not null PRIMARY KEY,
+	nome 		varchar (45),
+        preco 		numeric(9,2),
+	tipo		varchar(30)       
+);
+
+CREATE TABLE Estoque  (
+	idFornecedor 		Serial NOT NULL PRIMARY KEY,
+	Produto_idProduto 	Serial NOT NULL,	
+	validade 		date,
+	dataCompra 		date,
+	lote 			varchar (45),
+        qtdEstoque 		int
+);
+
+CREATE TABLE OrdemServico_has_Produto(
+	Produto_idProduto 		Serial NOT NULL,
+	OrdemServico_idOrdemServico 	Serial NOT NULL ,
+    	preco 				numeric(9,2),
+    	qtd 				int,
+    	CONSTRAINT pk_oshp PRIMARY KEY (Produto_idProduto, OrdemServico_idOrdemServico)
+);
+
+ALTER TABLE Estoque  
+	add CONSTRAINT ProdutoFK foreign key (Produto_idProduto) references Produto(idProduto);
+
+
+ALTER TABLE OrdemServico_has_Produto
+	add CONSTRAINT ProdutoFK foreign key (Produto_idProduto) references Produto(idProduto),
+	add CONSTRAINT OrdemServicoFK foreign key (OrdemServico_idOrdemServico) references OrdemServico(idOrdemServico);

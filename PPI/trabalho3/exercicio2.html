@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio2</title>
+    <style>
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(212, 211, 211);
+            padding:  15px;
+            border-radius: 5px;
+        }
+        
+        ol {
+            width: 60%;
+            margin: auto;
+        }
+        li {
+            margin-top: 5px;
+            padding: 5px 10px 5px 20px;
+            background-color: rgb(189, 217, 240);
+            border: 0.5px solid rgb(70, 67, 212);
+            border-radius: 2px;
+        }
+        li > button {
+            font-size: smaller;
+            float: right;
+            color: red;
+            border: none;
+            background-color: rgb(189, 217, 240);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="interesse">Interesse:</label>
+        <input type="text" id="interesse" name="interesse">
+        <ol>
+        </ol>
+    </div>
+
+
+    <script>
+        window.onload = function () {   //apos carregar a pagina, executa a função
+            const campoInteresse = document.querySelector("#interesse"); // seleciona o elementos do campo 
+            campoInteresse.addEventListener("keyup", e =>{  //acrecenta um observador no imput
+                if (e.key === "Enter") {    //caso pressionado a tecla "enter", a função adicionaInteresse é chamada
+                    adicionaInteresse();
+                }
+            });
+
+        }
+
+        function adicionaInteresse() {
+            const campoInteresse = document.querySelector("#interesse");    // seleciona o elementos do campo 
+            const listaInteresses = document.querySelector("ol");   // seleciona o elementos da lista 
+
+            const novoLi = document.createElement("li");    //cria um novo elemento na lista
+            const novoSpan = document.createElement("span");    //cria um novo espan com o conteudo do campo
+            const novoBotao = document.createElement("button"); //cria um novo botao para remover caso necessario
+
+            novoSpan.textContent = campoInteresse.value;    //insere o conteudo do campo no span
+            novoBotao.textContent = '×';    //simbolo x no botao
+
+            novoLi.appendChild(novoSpan);   //o span é acrescentado ao li
+            novoLi.appendChild(novoBotao);  //o botao é acrescentado ao li
+            listaInteresses.appendChild(novoLi);    //o li é acrescentado à ol
+
+            novoBotao.onclick =function () {    //ao ser clicado, é removido o li antes acrescentado à ol
+                listaInteresses.removeChild(novoLi);
+            }
+
+            campoInteresse.value = '';  //o campo é limpo
+        }
+    </script>
+</body>
+</html>

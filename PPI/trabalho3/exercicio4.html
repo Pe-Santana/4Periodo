@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio4</title>
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 15px;
+            line-height: 1.5rem;
+            background-color: rgb(214, 213, 213);
+            background-size: cover;
+            transform: translate(0%, 50%);
+        }
+
+        .loginBox {
+            width: 20%;
+            background-color: white;
+            border: 1px solid #666666;
+            border-radius: 5px;
+            margin: auto;
+            padding: 20px 30px;
+        }
+
+            .loginBox form section {
+                margin: 15px auto;
+            }
+
+            .loginBox form label {
+                display: block;
+            }
+
+            .loginBox form input {
+                width: 95%;
+                height: 20px;
+                border: 1px solid #666666;
+                border-radius: 2px;
+            }
+
+            .loginBox form span {
+                color: #a30000;
+            }
+
+            .loginBox input:focus {
+            border: 0.5px solid greenyellow;
+            box-shadow: 0px 0px 5px rgb(210, 233, 175);
+            outline: none;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+
+        <section class="loginBox">
+            <h3>Cadastro de Usuário</h3>
+            
+            <form name="formCadastro" action="action.php" method="post">
+    
+                <section>
+                    <label for="usuario">Usuário:</label>
+                    <input type="text" name="usuario" id="usuario" autocomplete="off">
+                    <span></span>
+                </section>
+    
+                <section>
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha">
+                    <span></span>
+                </section>
+                
+                <section>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" autocomplete="off">
+                    <span></span>
+                </section>
+    
+                <button>Cadastrar</button>
+    
+            </form>
+        </section>
+
+    </main>
+
+    <script>
+        window.onload = function () {   //apos carregar a pagina, executa a função
+            document.forms.formCadastro.onsubmit = validaForm;  //quando requisitado, chama a função de validação
+        }
+
+        function validaForm (e) {   //função responsavel por validar os campos
+            let form = e.target;    //seleciona o formulario
+
+            let formValidado = true;    //atribui a validação true para o formulario
+
+            const spanUsuario = form.usuario.nextElementSibling;    //inicializa a variavel com o usuario
+            const spanSenha = form.senha.nextElementSibling;    //inicializa a variavel com a senha
+            const spanEmail = form.email.nextElementSibling;    //inicializa a variavel com o email
+
+            spanUsuario.textContent = "";   //adiciona um valor vazio ao campo de usuario
+            spanSenha.textContent = ""; //adiciona um valor vazio ao campo de senha
+            spanEmail.textContent = ""; //adiciona um valor vazio ao campo de email
+
+            if (form.usuario.value === "") {    //caso o campo de usuario nao seja preenchido, retorna o aviso e não há o envio
+
+                spanUsuario.textContent = 'O usuario deve ser preenchido';
+                formValidado = false;
+            }
+            
+            if (form.usuario.value === "") {    //caso o campo de senha nao seja preenchido, retorna o aviso e não há o envio
+
+                spanSenha.textContent = 'A senha deve ser preenchida';
+                formValidado = false;
+            }
+            if (form.usuario.value === "") {    //caso o campo de email nao seja preenchido, retorna o aviso e não há o envio
+
+                spanUsuario.textContent = 'O usuario deve ser preenchido';
+                formValidado = false;
+            }
+
+            return formValidado;    //caso todos os campos sejam preenchidos, 
+
+        }
+    </script>
+</body>
+</html>

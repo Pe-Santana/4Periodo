@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio1</title>
+    <style>
+        .modal {
+            background-color: #0006;
+            display: none;
+            width: 100%;
+            height: 100%;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            overflow: auto;
+            z-index: 1;
+        }
+        .modalContent {
+            background-color: #eee;
+            margin: auto;
+            padding: 20px;
+            border: 0.5px solid #aaa;
+            box-shadow: 0 0 5px #333;
+
+            width: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Teste Modal.</h1>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci quisquam ipsa molestiae unde earum, id distinctio eius voluptatum molestias debitis tenetur dolore magnam esse libero doloremque voluptate dolores voluptatem aspernatur.</p>
+    <button type="button" id="buttonOpen">Abrir</button>
+    <div id="modalTeste" class="modal">
+
+        <div class="modalContent">
+            <h2>Teste da janela modal!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quidem facere omnis vel ipsa nemo tempora ipsum labore eaque odit quo dolorem adipisci asperiores, nulla dolorum molestias quam veritatis deleniti!</p>
+            <button class="buttonClose">Fechar</button>
+
+        </div>
+        
+    </div>
+    <script>
+        window.onload = function () { //apos carregar a pagina, executa a função
+
+            const modal = document.querySelector(".modal"); // seleciona o objeto correspondente ao modal
+            const buttonClose = modal.querySelector (".buttonClose");   // seleciona o objeto correspondente ao botao responsavel por fechar a janela modal
+
+            buttonClose.addEventListener("click", function () { //ao ocorrer o evento click do botao de fechar, a função fecha a janela modal
+                modal.style.display ='none';  
+            });
+
+            const buttonOpen = document.getElementById("buttonOpen");   // seleciona o objeto correspondente ao botao responsavel por abrir a janela modal
+            buttonOpen.addEventListener("click", function (){   //ao ocorrer o evento click do botao de abrir, a função abre a janela modal
+                modal.style.display = 'block';
+            })
+        }
+    </script>
+
+</body>
+</html>

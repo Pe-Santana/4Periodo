@@ -1,0 +1,4 @@
+Fiz a parte do escudo mas estou com duvidade como adicionar ao personagem.
+Acabei criando dois escudos, um fraco e um forte que contem apenas a defesa.
+A classe escudo aponta para unm proximo.
+Acredito que tem algum problema no absorveDano e não tenho ideia de como passar ao personagem durante o jogo.

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>exercicio3</title>
+    <style>
+        body {
+            background-color: #eee;
+            
+    
+        }
+        .loginBox{
+            width: 50%;
+            padding: 20px;
+            background-color: white;
+            border: 0.8px solid #aaa;
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        input {
+            display: block;
+            margin: 8px 0 15px;
+            padding: 8px;
+            width: 90%;
+            border: 0.5px solid #888;
+            border-radius: 4px;
+        }   
+        input:focus {
+            border: 0.5px solid greenyellow;
+            box-shadow: 0px 0px 5px rgb(210, 233, 175);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="loginBox">
+            <form action="action.php" method="post">
+                <section>
+                    <label for="email">E-mail:</label><br>
+                    <input type="email" name="email" id="email" required>
+                </section>
+                <section>
+                    <label for="senha">Senha:</label><br>
+                    <input type="password" name="senha" id="senha" required>
+                </section>
+                <button>Cadastrar</button>
+        
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

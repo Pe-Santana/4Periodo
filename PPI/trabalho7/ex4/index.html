@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>exercicio4</title>
+    <style>
+    
+
+    main {
+      width: 25%;
+      height: 20%;
+      background-color: #eee;
+      border: 0.5px solid gray;
+      padding: 2% 2%;
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+    }
+
+
+
+    </style>
+</head>
+<body>
+   <main>
+       <div class="container" >
+
+           <form>
+               <div class="col-12" >
+                   <label for="especialidade">Especialidade:</label> <br>
+                   <select name="especialidade" id="especialidade" class="form-select" onchange="opcoes(this)">
+                       <option>Especialidade</option>
+                       <option value="cardio">Cardiologia</option>
+                       <option value="dermato">Dermatologia</option>
+                       <option value="oftalmo">Oftalmologia</option>
+                   </select>
+               </div>
+               <div class="col-12" >
+                   <label for="medico">Médico:</label> <br>
+                   <select name="medico" id="medico" class="form-select" disabled>
+                   </select>
+               </div>
+   
+           </form>
+       </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy"
+    crossorigin="anonymous"></script>
+
+    <script>
+
+        const opcoes = (e) => {
+
+            const esp = e.value;
+            let select = document.getElementById("medico");
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "medicos.php?esp=" + esp);
+            xhr.responseType = 'json';
+
+
+            xhr.onload = function () {
+                const response = xhr.response;
+                select.removeAttribute('disabled')
+                select.innerHTML = '';
+                for (i in response) {
+                    var option = document.createElement("option");
+                    option.text = response[i].nome_medico + ' - ' + response[i].telefone_medico;
+                    option.value = response[i].nome_medico + ' - ' + response[i].telefone_medico;
+                    select.add(option);
+                }
+            }
+
+            xhr.onerror = function () {
+                console.log("Erro a nível de rede");
+            };
+
+            xhr.send();
+
+        }
+
+    </script>
+</body>
+</html>
