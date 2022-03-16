@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1>Clique Aqui!</h1>
+        <h1>Tambem sou H1!</h1>
+        <h1>Tambem sou H1!</h1>
+        <h1>Tambem sou H1!</h1>
+        
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nodeH1 = document.querySelector("h1");
+            nodeH1.addEventListener("click", alteraconteudo);
+        })
+        
+        function alteraconteudo() {
+            const nodeH1 = document.querySelectorAll("h1");
+
+            for (let node of nodeH1) {
+                node.textContent = "alterou a Arvore DOM."
+            }
+        }
+    </script>   
+</html>
