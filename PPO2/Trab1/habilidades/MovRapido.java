@@ -8,6 +8,18 @@ package habilidades;
  */
 public class MovRapido implements Movimento
 {
+	private static MovRapido instancia = null;
+	
+	private MovRapido() {
+		super();
+	}
+	
+	public static synchronized MovRapido getInstancia() {
+		if (instancia == null) {
+			instancia = new MovRapido();
+		}
+		return instancia;
+	}
     public int movimentar(){
         System.out.println("Implementa movimento rápido.");
         

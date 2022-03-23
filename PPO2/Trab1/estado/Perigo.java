@@ -8,8 +8,8 @@ public class Perigo extends Estado{
 	
 	public Perigo(Personagem personagem) {
 		super(personagem);
-		this.getPersonagem().setA(new AtqFraco());
-		this.getPersonagem().setM(new MovDevagar());
+		this.getPersonagem().setA(AtqFraco.getInstancia());
+		this.getPersonagem().setM(MovDevagar.getInstancia());
 		
 	}
 	

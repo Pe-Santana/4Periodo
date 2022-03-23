@@ -11,11 +11,11 @@ import habilidades.PuloBaixo;
  * @author (seu nome) 
  * @version (um número da versão ou uma data)
  */
-public class Personagem_03 extends Personagem
+public class Personagem_04 extends Personagem
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-	public Personagem_03(){
+	public Personagem_04(){
         this.setA(AtqForte.getInstancia());
-        this.setM(MovMedio.getInstancia());
+        this.setM(MovRapido.getInstancia());
     }
 }

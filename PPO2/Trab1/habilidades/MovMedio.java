@@ -8,6 +8,18 @@ package habilidades;
  */
 public class MovMedio implements Movimento
 {
+	private static MovMedio instancia = null;
+	
+	private MovMedio() {
+		super();
+	}
+	
+	public static synchronized MovMedio getInstancia() {
+		if (instancia == null) {
+			instancia = new MovMedio();
+		}
+		return instancia;
+	}
     public int movimentar(){
         System.out.println("Implementa movimento médio.");
         

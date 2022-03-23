@@ -1,6 +1,8 @@
 package personagem;
 import habilidades.AtqForte;
+import habilidades.AtqFraco;
 import habilidades.MovMedio;
+import habilidades.MovRapido;
 import habilidades.PuloMedio;
 
 /**
@@ -12,8 +14,7 @@ import habilidades.PuloMedio;
 public class Personagem_01 extends Personagem
 {
     public Personagem_01(){
-        setA(new AtqForte());
-        setP(new PuloMedio());
-        setM(new MovMedio());
+        this.setA(AtqFraco.getInstancia());
+        this.setM(MovRapido.getInstancia());
     }
 }

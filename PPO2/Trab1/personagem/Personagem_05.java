@@ -1,6 +1,7 @@
 package personagem;
 import habilidades.AtqForte;
 import habilidades.AtqMedio;
+import habilidades.MovDevagar;
 import habilidades.MovMedio;
 import habilidades.MovRapido;
 import habilidades.PuloBaixo;
@@ -11,11 +12,11 @@ import habilidades.PuloBaixo;
  * @author (seu nome) 
  * @version (um número da versão ou uma data)
  */
-public class Personagem_03 extends Personagem
+public class Personagem_05 extends Personagem
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-	public Personagem_03(){
+	public Personagem_05(){
         this.setA(AtqForte.getInstancia());
-        this.setM(MovMedio.getInstancia());
+        this.setM(MovDevagar.getInstancia());
     }
 }

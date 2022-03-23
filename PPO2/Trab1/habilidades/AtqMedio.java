@@ -8,6 +8,18 @@ package habilidades;
  */
 public class AtqMedio extends Ataque
 {
+    private static AtqMedio instancia = null;
+    
+    private AtqMedio() {
+    	super();
+    }
+    
+    public static synchronized AtqMedio getInstancia() {
+    	if (instancia == null) {
+			instancia = new AtqMedio();
+		}
+    	return instancia;
+    }
     public int atacar(){
         System.out.println("Implementa ataque médio.");
         return 7;

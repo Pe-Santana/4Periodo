@@ -8,7 +8,19 @@ package habilidades;
  */
 public class AtqForte extends Ataque
 {
-    public int atacar(){
+    private static AtqForte instancia = null;
+    
+    private AtqForte() {
+    	super();
+    }
+    
+    public static synchronized AtqForte getInstancia() {
+    	if (instancia == null) {
+			instancia = new AtqForte();
+		}
+    	return instancia;
+    }
+	public int atacar(){
         System.out.println("Implementa ataque forte.");
         return 10;
     }

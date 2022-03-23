@@ -8,8 +8,8 @@ public class Normal extends Estado{
 	
 	public Normal(Personagem personagem) {
 		super(personagem);
-		this.getPersonagem().setA(new AtqMedio());
-		this.getPersonagem().setM(new MovMedio());
+		this.getPersonagem().setA(AtqMedio.getInstancia());
+		this.getPersonagem().setM(MovMedio.getInstancia());
 		
 	}
 	
