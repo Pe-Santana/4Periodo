@@ -4,11 +4,11 @@ public class PoderAtqFraco extends AtqDecorator {
 
 	public PoderAtqFraco(Ataque atqDecorator) {
 		super(atqDecorator);
-		setDano(3);
+		this.setAtqDecorator(atqDecorator);
 	}
 	
-    public int getDano() {
-		return (super.getDano() + this.getAtqDecorator().atacar());
+    public int atacar() {
+		return (3 + this.getAtqDecorator().atacar());
 	}
 		
 }

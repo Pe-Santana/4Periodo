@@ -2,7 +2,6 @@ package personagem;
 import estado.Estado;
 import habilidades.Ataque;
 import habilidades.Movimento;
-import habilidades.Pulo;
 import inimigo.*;
 
 import java.util.Observable;
@@ -21,7 +20,6 @@ public class Personagem extends Observable
 	private int life;
 	private Ataque a;
     private Movimento m;
-    private Pulo p;
     private Estado e;
     private int posX;
     private int posY;
@@ -57,6 +55,21 @@ public class Personagem extends Observable
         }
 	}
 	
+	//mover
+	public void moverCima() {
+		this.setPosY(this.getPosY() - 1);
+	}
+	public void moverBaixo() {
+		this.setPosY(this.getPosY() + 1);
+	}
+	public void moverEsquerda() {
+		this.setPosX(this.getPosX() - 1);
+	}
+	public void moverDireita() {
+		this.setPosX(this.getPosX() + 1);
+	}
+	
+	
 	public void ganhaEscudo(Escudo novoescudo) {
 		novoescudo.setProximo(escudo);
 		escudo = novoescudo;
@@ -67,9 +80,7 @@ public class Personagem extends Observable
     public void movimentar(){
         m.movimentar();
     }
-    public void pular(){
-        p.pular();
-    }
+
     
     public void ganhaLife(int life) {
     	this.getE().ganharVida(life);
@@ -133,13 +144,6 @@ public class Personagem extends Observable
 		this.m = m;
 	}
 
-	public Pulo getP() {
-		return p;
-	}
-
-	public void setP(Pulo p) {
-		this.p = p;
-	}
 
 	public int getPosX() {
 		return posX;

@@ -1,9 +1,8 @@
 package personagem;
 import habilidades.AtqForte;
-import habilidades.AtqMedio;
-import habilidades.MovMedio;
+
 import habilidades.MovRapido;
-import habilidades.PuloBaixo;
+
 
 /**
  * Escreva uma descrição da classe Personagem_03 aqui.
@@ -15,6 +14,8 @@ public class Personagem_04 extends Personagem
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
 	public Personagem_04(){
+		this.setPosX(250);
+		this.setPosY(250);
         this.setA(AtqForte.getInstancia());
         this.setM(MovRapido.getInstancia());
     }

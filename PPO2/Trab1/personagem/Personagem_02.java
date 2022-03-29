@@ -1,9 +1,8 @@
 package personagem;
-import habilidades.AtqFraco;
 import habilidades.AtqMedio;
 import habilidades.MovMedio;
-import habilidades.MovRapido;
-import habilidades.PuloAlto;
+
+
 
 /**
  * Escreva uma descrição da classe Personagem_02 aqui.
@@ -14,6 +13,8 @@ import habilidades.PuloAlto;
 public class Personagem_02 extends Personagem
 {
 	public Personagem_02(){
+		this.setPosX(250);
+		this.setPosY(250);
         this.setA(AtqMedio.getInstancia());
         this.setM(MovMedio.getInstancia());
     }

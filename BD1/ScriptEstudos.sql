@@ -236,12 +236,18 @@ SELECT pnumber, dnum, lname
 	
 
 --Estudo de procedure
-CREATE PROCEDURE listarEmpregadosCidade @Cidade varchar(30)
-AS
-SET @Cidade = '%' + @Cidade + '%';
-select e.fname 
+
+create function BuscaSalario(nome text)
+returns numeric(10,2) AS $$
+declare 
+	valor numeric(10,2) :=0;
+begin
+	select e.salary into valor  
 	from employee e 
-	where e.address like @Cidade;
+	where e.fname = $1;
+	return valor;
+end;
 
-EXEC listarEmpregadosCidade 'Houston';
+$$ language plpgsql;
 
+select  BuscaSalario('Alicia');

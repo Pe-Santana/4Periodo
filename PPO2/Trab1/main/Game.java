@@ -7,22 +7,34 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import controle.*;
 import inimigo.Chefe;
 import inimigo.Goblin;
+import inimigo.Inimigo;
 import inimigo.Orc;
 import personagem.Personagem;
 import escudo.*;
+import factory.SimpleInimigoFactory;
+import factory.SimplePersonagemFactory;
+import fases.EndGame;
+import fases.Fase;
+import fases.Mundo;
 import habilidades.PoderAtqMedio;
 
 public class Game extends JPanel {
 	private Personagem personagem;
-	private Orc orc;
-	private Goblin gob;
-	private Chefe chefe;
+    private ArrayList<Inimigo> inimigo = new ArrayList<Inimigo>();
+	private Inimigo orc;
+	private Inimigo gob;
+	private Inimigo chefe;
+	private Mundo fases = new Fase(4, 4, "1ª fase.", new Fase(5, 4, "2ª fase.", new EndGame(), new EndGame()), new Fase(7, 3, "2 ªFase", new EndGame(), new EndGame()));
+	private Controle controle = new Controle();
+	private Macro golpeDash = new Macro();
 	
 	public Game() {
 		KeyListener listener = new MyKeyListener();
@@ -35,21 +47,22 @@ public class Game extends JPanel {
 		public void keyPressed(KeyEvent e) {
 			
 			if (e.getKeyCode() == KeyEvent.VK_LEFT)
-				personagem.setPosX(personagem.getPosX() - 1);
+				controle.pressionar(2);
 			
 			if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-				personagem.setPosX(personagem.getPosX() + 1);
+				controle.pressionar(3);
 			
 			if (e.getKeyCode() == KeyEvent.VK_UP)
-				personagem.setPosY(personagem.getPosY() - 1);
+				controle.pressionar(0);
 			
 			if (e.getKeyCode() == KeyEvent.VK_DOWN)
-				personagem.setPosY(personagem.getPosY() + 1);
+				controle.pressionar(1);
 			
 			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-				personagem.hita(gob);
-				personagem.hita(chefe);
-				personagem.hita(orc);
+				controle.pressionar(4);
+			}
+			if (e.getKeyCode() == KeyEvent.VK_Z) {
+				controle.pressionar(5);
 			}
 
 		}
@@ -100,12 +113,31 @@ public class Game extends JPanel {
 		frame.setSize(500, 500);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		personagem = new Personagem(200,50);
-		chefe = new Chefe(10, 50);
-		orc = new Orc(40, 9);
-		gob = new Goblin(20, 20);
-
+		
+		//personagem = SimplePersonagemFactory.createPersonagem();
+		personagem = new Personagem(250,250);
+		orc = SimpleInimigoFactory.createInimigo(2, 100, 150);
+		gob = SimpleInimigoFactory.createInimigo(4, 50, 150);
+		chefe = SimpleInimigoFactory.createInimigo(1, 200, 150);
+		
+		inimigo.add(chefe);
+		inimigo.add(orc);
+		inimigo.add(gob);
+		
+		
+		controle.setCommand(new Cima(personagem), 0);
+		controle.setCommand(new Baixo(personagem), 1);
+		controle.setCommand(new Esquerda(personagem), 2);
+		controle.setCommand(new Direita(personagem), 3);
+		controle.setCommand(new Ataque(personagem, inimigo), 4);
+		controle.setCommand(golpeDash, 5);
+		golpeDash.add(new Ataque(personagem, inimigo));
+		golpeDash.add(new Direita(personagem));
+		golpeDash.add(new Direita(personagem));
+		golpeDash.add(new Direita(personagem));
+		
+		
+		
 		personagem.addObserver(chefe);
 		personagem.addObserver(orc);
 		personagem.addObserver(gob);

@@ -7,24 +7,9 @@ package habilidades;
  * @version (um número da versão ou data aqui)
  */
 
-public abstract class Ataque {
-	
-	public int dano;
-	
-	
-	public int atacar(){
-		return getDano();
-	}
-	
-	
-	//get set
-    public int getDano() {
-		return dano;
-	}
+public interface Ataque {
 
+	public int atacar();
 
-	public void setDano(int dano) {
-		this.dano = dano;
-	}
 
 }

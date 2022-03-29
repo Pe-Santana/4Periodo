@@ -1,6 +1,7 @@
 package habilidades;
 
-public class AtqDecorator extends Ataque {
+public abstract class AtqDecorator implements Ataque {
+	
 	private Ataque atqDecorator;
 	
 	public AtqDecorator(Ataque atq) {

@@ -3,11 +3,11 @@ package habilidades;
 public class PoderAtqMedio extends AtqDecorator {
 	public PoderAtqMedio(Ataque atqDecorator) {
 		super(atqDecorator);
-		setDano(6);
+		this.setAtqDecorator(atqDecorator);
 	}
 	
-    public int getDano() {
-		return (super.getDano() + this.getAtqDecorator().atacar());
+    public int atacar() {
+		return (6 + this.getAtqDecorator().atacar());
 	}
 		
 

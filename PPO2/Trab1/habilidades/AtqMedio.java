@@ -6,7 +6,7 @@ package habilidades;
  * @author (seu nome) 
  * @version (um número da versão ou uma data)
  */
-public class AtqMedio extends Ataque
+public class AtqMedio implements Ataque
 {
     private static AtqMedio instancia = null;
     
